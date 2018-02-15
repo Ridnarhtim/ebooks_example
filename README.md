@@ -1,6 +1,7 @@
 # simple_heroku_twitter_ebooks
 
-Designed to be as simple as possible to create your bot and run it in the cloud (using Heroku)
+Designed to make it as simple as possible to create your bot and run it in the cloud (using Heroku).
+Based on https://github.com/mispy/ebooks_example
 
 ## Prerequisites
 
@@ -50,4 +51,4 @@ worker bundle exec ebooks start
 
 Click the pencil icon on the right of that, flip the switch so it's "on", then click confirm.
 
-Your bot should now be running; try tweeting at it.
+Your bot should now be running; it might take a minute or so to start up and build its model, so wait a bit then try tweeting at it.
