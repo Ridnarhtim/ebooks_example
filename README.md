@@ -15,7 +15,7 @@ You'll need to add a credit card to your account (you won't be billed though) ht
 
 ## Set up
 
-**This section assumes some basic knowledge of using the linux command line**
+**This section assumes some basic knowledge of how the linux command line works**
 
 Download this repository by clicking the green Clone or Download button near the top of this page, then Download Zip. Extract the archive to a folder (I'd recommend somewhere in My Documents where you can keep the folder long-term)
 
@@ -27,7 +27,12 @@ You'll need to fullfill the prerequisites, then follow the steps under
 - Creating a Heroku remote -> For a new Heroku app
 - Deploying code (just the first paragraph, ignore the bit about branches)
 
-In Windows, it's easiest to run the commands in git bash, which gets installed as part of git.
+In Windows, it's easiest to run the commands in Git Bash, which gets installed as part of git.
+Open Git Bash, then instead of "cd myapp", replace myapp with the full path to the folder you just extracted in single quotes; for example:
+```bash
+cd 'C:\Users\<username>\Documents\simple_heroku_twitter_ebooks'
+```
+
 
 Then go to
 https://dashboard.heroku.com/apps
