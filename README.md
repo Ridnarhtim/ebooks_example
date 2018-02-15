@@ -5,11 +5,11 @@ Based on https://github.com/mispy/ebooks_example
 
 ## Prerequisites
 
-Set up your bots Twitter account by following steps 1-3 here:
+Set up your bot's Twitter account by following steps 1-3 here:
 https://medium.com/science-friday-footnotes/how-to-make-a-twitter-bot-in-under-an-hour-259597558acf
 
 
-Create a Heroku account on http://heroku.com/
+Create a Heroku account on http://heroku.com/.
 If asked for a Primary Development Language, select Ruby.
 You'll need to add a credit card to your account (you won't be billed though) https://dashboard.heroku.com/account/billing
 
@@ -55,7 +55,7 @@ Click the pencil icon on the right of that, flip the switch so it's "on", then c
 Your bot should now be running; it might take a minute or so to start up and build its model, so wait a bit then try tweeting at it.
 
 
-# Additional Help Running Commands in Windows
+## Additional Help Running Commands in Windows
 
 In Windows, it's easiest to run the commands for Heroku in Git Bash, which gets installed as part of git.
 Open the Git Bash program, then instead of "cd myapp", replace myapp with the full path to the folder containing the code, **in single quotes**; for example:
