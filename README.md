@@ -2,7 +2,7 @@
 
 Designed to be as simple as possible to create your bot and run it in the cloud (using Heroku)
 
-# Prerequisites
+## Prerequisites
 
 Set up your bots Twitter account by following steps 1-3 here:
 
@@ -15,11 +15,9 @@ If asked for a Primary Development Language, select Ruby
 
 You'll need to add a credit card to your account (you won't be billed though) https://dashboard.heroku.com/account/billing
 
-# Set up
+## Set up
 
-Note: this section currently assumes some basic knowledge of how to use git the linux command line.
-At the very least, read the section on Changing Directories here:
-https://lifehacker.com/5633909/who-needs-a-mouse-learn-to-use-the-command-line-for-almost-anything
+**This section assumes some basic knowledge of using the linux command line**
 
 Download this repository by clicking Clone or Download, then Download Zip, on this page, and extract it to a folder (I'd recommend somewhere in My Documents where you can keep the folder long-term)
 
@@ -30,7 +28,7 @@ You'll need to fullfill the prerequisites, and follow the steps under
 - Tracking your app in Git
 - Creating a Heroku remote - For a new Heroku app
 - Deploying code (just the first paragraph, ignore the bit about branches)
-Under Windows, it's easiest to run the commands in git bash (this will have been installed with git)
+In Windows, it's easiest to run the commands in git bash
 
 Then go to
 https://dashboard.heroku.com/apps
