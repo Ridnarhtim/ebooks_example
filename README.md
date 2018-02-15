@@ -13,6 +13,10 @@ You'll need to add a credit card to your account (you won't be billed though) ht
 
 # Set up
 
+Note: this section currently assumes some basic knowledge of how to use git the linux command line.
+At the very least, read the section on Changing Directories here:
+https://lifehacker.com/5633909/who-needs-a-mouse-learn-to-use-the-command-line-for-almost-anything
+
 Download this repository by clicking Clone or Download, then Download Zip, on this page, and extract it to a folder (I'd recommend somewhere in My Documents where you can keep the folder long-term)
 
 Follow the steps to create a heroku app here:
@@ -22,7 +26,7 @@ You'll need to fullfill the prerequisites, and follow the steps under
 - Tracking your app in Git
 - Creating a Heroku remote - For a new Heroku app
 - Deploying code (just the first paragraph, ignore the bit about branches)
-It's easiest to run the commands in git bash
+Under Windows, it's easiest to run the commands in git bash (this will have been installed with git)
 
 Then go to
 https://dashboard.heroku.com/apps
@@ -38,9 +42,12 @@ ACCESS_TOKEN_SECRET | (Your access token secret from the Twitter app)
 BOT_NAME | (Your bot's @)
 BOT_ORIGINAL_USER | (The @ for the account to imitate)
 
-finally, go back to your git bash (where you created the Heroku app earlier) and execute
+Finally, start your bot:
+Select the Resources tab; under Free Dynos, you should see something like
 ```bash
-git push heroku master
+worker bundle exec ebooks start
 ```
 
-Once that's done, your bot should be running. Try tweeting at it.
+Click the pencil icon on the right of that, flip the switch so it's "on", then click confirm.
+
+Your bot should now be running; try tweeting at it.
