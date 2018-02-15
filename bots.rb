@@ -38,7 +38,7 @@ class CloneBot < Ebooks::Bot
     load_model!
    # Tweet every hour
     scheduler.cron '0 * * * *' do  
-      tweet(make_statement_wrapper)
+      tweet(model.make_statement)
     end
 	
 	# Reload model every 24h (at 5 minutes past 1am)
