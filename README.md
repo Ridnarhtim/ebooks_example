@@ -5,14 +5,11 @@ Designed to be as simple as possible to create your bot and run it in the cloud 
 ## Prerequisites
 
 Set up your bots Twitter account by following steps 1-3 here:
-
 https://medium.com/science-friday-footnotes/how-to-make-a-twitter-bot-in-under-an-hour-259597558acf
 
 
 Create a Heroku account on http://heroku.com/
-
-If asked for a Primary Development Language, select Ruby
-
+If asked for a Primary Development Language, select Ruby.
 You'll need to add a credit card to your account (you won't be billed though) https://dashboard.heroku.com/account/billing
 
 ## Set up
