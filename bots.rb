@@ -1,5 +1,7 @@
 require 'twitter_ebooks'
 
+#based on the bot example found at https://github.com/mispy/ebooks_example
+
 # Information about a particular Twitter user we know
 class UserInfo
   attr_reader :username
@@ -14,27 +16,33 @@ class UserInfo
   end
 end
 
+def top100; @top100 ||= model.keywords.take(100); end
+def top20;  @top20  ||= model.keywords.take(20); end
+
 class CloneBot < Ebooks::Bot
   attr_accessor :original, :model, :model_path
 
   def configure
     # Configuration for all CloneBots
-    self.consumer_key = ""
-    self.consumer_secret = ""
-    self.blacklist = ['kylelehk', 'friedrichsays', 'Sudieofna', 'tnietzschequote', 'NerdsOnPeriod', 'FSR', 'BafflingQuotes', 'Obey_Nxme']
+    self.consumer_key = ENV["CONSUMER_KEY"] # Your app consumer key
+    self.consumer_secret = ENV["CONSUMER_SECRET"] # Your app consumer secret
+    # Users to block instead of interacting with
+    self.blacklist = []
+    # Range in seconds to randomize delay when bot.delay is called
     self.delay_range = 1..6
     @userinfo = {}
   end
 
-  def top100; @top100 ||= model.keywords.take(100); end
-  def top20;  @top20  ||= model.keywords.take(20); end
-
   def on_startup
     load_model!
-
-    scheduler.cron '0 0 * * *' do
-      # Each day at midnight, post a single tweet
-      tweet(model.make_statement)
+   # Tweet every hour
+    scheduler.cron '0 * * * *' do      
+      tweet(make_statement_wrapper)
+    end
+	
+	# Reload model every 24h (at 5 minutes past 2am)
+    scheduler.cron '5 2 * * *' do  
+      load_model!
     end
   end
 
@@ -119,8 +127,6 @@ class CloneBot < Ebooks::Bot
 
   private
   def load_model!
-    return if @model
-
     @model_path ||= "model/#{original}.model"
 
     log "Loading model #{model_path}"
@@ -128,9 +134,9 @@ class CloneBot < Ebooks::Bot
   end
 end
 
-CloneBot.new("abby_ebooks") do |bot|
-  bot.access_token = ""
-  bot.access_token_secret = ""
-
-  bot.original = "0xabad1dea"
+# Make bot
+CloneBot.new(ENV["BOT_NAME"]) do |bot|
+  bot.access_token = ENV["ACCESS_TOKEN"] # Token connecting the app to this account
+  bot.access_token_secret = ENV["ACCESS_TOKEN_SECRET"] # Secret connecting the app to this account
+  bot.original = ENV["BOT_ORIGINAL_USER"]
 end
