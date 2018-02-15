@@ -15,8 +15,6 @@ You'll need to add a credit card to your account (you won't be billed though) ht
 
 ## Set up
 
-**This section assumes some basic knowledge of how the linux command line works**
-
 Download this repository by clicking the green Clone or Download button near the top of this page, then Download Zip. Extract the archive to a folder (I'd recommend somewhere in My Documents where you can keep the folder long-term)
 
 Follow the steps to create a heroku app here:
