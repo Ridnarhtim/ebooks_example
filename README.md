@@ -1,19 +1,46 @@
-# ebooks_example
+# simple_heroku_twitter_ebooks
 
-As requested, this is the [twitter_ebooks](https://github.com/mispy/twitter_ebooks) app which I use to run most of my own bots. It tweets one guaranteed tweet every 24h, always responds to interactions, and has some small unprompted interaction probability based on keyword matching.
+Designed to be as simple as possible to create your bot and run it in the cloud (using Heroku)
 
-## Usage
+# Prerequisites
 
+Set up your bots Twitter account by following steps 1-3 here:
+https://medium.com/science-friday-footnotes/how-to-make-a-twitter-bot-in-under-an-hour-259597558acf
+
+Create a Heroku account on http://heroku.com/
+If asked for a Primary Development Language, select Ruby
+You'll need to add a credit card to your account (you won't be billed though) https://dashboard.heroku.com/account/billing
+
+# Set up
+
+Download this repository by clicking Clone or Download, then Download Zip, on this page, and extract it to a folder (I'd recommend somewhere in My Documents where you can keep the folder long-term)
+
+Follow the steps to create a heroku app here:
+https://devcenter.heroku.com/articles/git
+
+You'll need to fullfill the prerequisites, and follow the steps under
+- Tracking your app in Git
+- Creating a Heroku remote - For a new Heroku app
+- Deploying code (just the first paragraph, ignore the bit about branches)
+It's easiest to run the commands in git bash
+
+Then go to
+https://dashboard.heroku.com/apps
+You should see your app here, with a randomly generated name. Click it, then go to settings and click reveal config vars.
+You'll need to add the following keys and values here (make sure everything is spelled and capitalised correctly, including Twitter usernames)
+
+KEY | VALUE |
+--- | --- |
+CONSUMER_KEY | (Your consumer key from the Twitter app)
+CONSUMER_SECRET | (Your consumer secret from the Twitter app)
+ACCESS_TOKEN | (Your access token from the Twitter app)
+ACCESS_TOKEN_SECRET | (Your access token secret from the Twitter app)
+BOT_NAME | (Your bot's @)
+BOT_ORIGINAL_USER | (The @ for the account to imitate)
+
+finally, go back to your git bash (where you created the Heroku app earlier) and execute
 ```bash
-git clone https://github.com/mispy/ebooks_example.git
-cd ebooks_example
-bundle install
-ebooks archive username corpus/username.json
-ebooks consume corpus/username.json
+git push heroku master
 ```
 
-Populate bots.rb with your auth details, the bot username and model name, then:
-
-`ebooks start`
-
-Also runs as a Heroku app! See the [twitter_ebooks](https://github.com/mispy/twitter_ebooks) README for more information.
+Once that's done, your bot should be running. Try tweeting at it.
