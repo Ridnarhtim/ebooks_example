@@ -129,9 +129,10 @@ class CloneBot < Ebooks::Bot
   private
 
   def generate_config_file!
+    log "generating config file at #{ENV['HOME']}/.ebooksrc"
     config_path = "#{ENV['HOME']}/.ebooksrc"
     jsonstring =  "{\"consumer_key\": \"#{ENV["CONSUMER_KEY"]}\"," + 
-                  "\"consumer_secret\": \"#{ENV["CONSUMER_KEY"]}\"," + 
+                  "\"consumer_secret\": \"#{ENV["CONSUMER_SECRET"]}\"," + 
                   "\"oauth_token\": \"#{ENV["ACCESS_TOKEN"]}\"," + 
                   "\"oauth_token_secret\": \"#{ENV["ACCESS_TOKEN_SECRET"]}\"}"
     File.write(config_path, jsonstring)
