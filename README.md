@@ -21,9 +21,9 @@ Download this repository by clicking the green Clone or Download button near the
 Follow the steps to create a heroku app here:
 https://devcenter.heroku.com/articles/git
 
-You'll need to fullfill the prerequisites, and follow the steps under
+You'll need to fullfill the prerequisites, then follow the steps under
 - Tracking your app in Git
-- Creating a Heroku remote - For a new Heroku app
+- Creating a Heroku remote -> For a new Heroku app
 - Deploying code (just the first paragraph, ignore the bit about branches)
 
 In Windows, it's easiest to run the commands in git bash, which gets installed as part of git.
