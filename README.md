@@ -25,7 +25,8 @@ You'll need to fullfill the prerequisites, and follow the steps under
 - Tracking your app in Git
 - Creating a Heroku remote - For a new Heroku app
 - Deploying code (just the first paragraph, ignore the bit about branches)
-In Windows, it's easiest to run the commands in git bash
+
+In Windows, it's easiest to run the commands in git bash, which gets installed as part of git.
 
 Then go to
 https://dashboard.heroku.com/apps
