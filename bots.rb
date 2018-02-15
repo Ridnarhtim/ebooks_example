@@ -37,7 +37,7 @@ class CloneBot < Ebooks::Bot
     generate_config_file!
     load_model!
    # Tweet every hour
-    scheduler.every '1h' do
+    scheduler.cron '0 * * * *' do  
       tweet(make_statement_wrapper)
     end
 	
