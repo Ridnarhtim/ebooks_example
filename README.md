@@ -27,11 +27,7 @@ You'll need to fullfill the prerequisites, then follow the steps under
 - Creating a Heroku remote -> For a new Heroku app
 - Deploying code (just the first paragraph, ignore the bit about branches)
 
-In Windows, it's easiest to run the commands in Git Bash, which gets installed as part of git.
-Open Git Bash, then instead of "cd myapp", replace myapp with the full path to the folder you just extracted in single quotes; for example:
-```bash
-cd 'C:\Users\<username>\Documents\simple_heroku_twitter_ebooks'
-```
+If you're under Windows and don't know how to use the linux command line, check the section *Additional Help Running Commands in Windows* at the bottom of this page
 
 
 Then go to
@@ -57,3 +53,13 @@ worker bundle exec ebooks start
 Click the pencil icon on the right of that, flip the switch so it's "on", then click confirm.
 
 Your bot should now be running; it might take a minute or so to start up and build its model, so wait a bit then try tweeting at it.
+
+
+#Additional Help Running Commands in Windows
+
+In Windows, it's easiest to run the commands for Heroku in Git Bash, which gets installed as part of git.
+Open the Git Bash program, then instead of "cd myapp", replace myapp with the full path to the folder containing the code, **in single quotes**; for example:
+```bash
+cd 'C:\Users\<username>\Documents\simple_heroku_twitter_ebooks'
+```
+You can find out this path by right clicking any file in the folder and selecting properties; you can copy the path to the folder next to Location, then right click in git bash and paste (ctrl+v won't work!)
