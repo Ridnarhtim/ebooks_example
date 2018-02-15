@@ -34,14 +34,15 @@ class CloneBot < Ebooks::Bot
   end
 
   def on_startup
+    generate_config_file!
     load_model!
    # Tweet every hour
-    scheduler.cron '0 * * * *' do      
+    scheduler.every '1h' do
       tweet(make_statement_wrapper)
     end
 	
-	# Reload model every 24h (at 5 minutes past 2am)
-    scheduler.cron '5 2 * * *' do  
+	# Reload model every 24h (at 5 minutes past 1am)
+    scheduler.cron '5 1 * * *' do  
       load_model!
     end
   end
@@ -126,9 +127,23 @@ class CloneBot < Ebooks::Bot
   end
 
   private
+
+  def generate_config_file!
+    config_path = "#{ENV['HOME']}/.ebooksrc"
+    jsonstring =  "{\"consumer_key\": \"#{ENV["CONSUMER_KEY"]}\"," + 
+                  "\"consumer_secret\": \"#{ENV["CONSUMER_KEY"]}\"," + 
+                  "\"oauth_token\": \"#{ENV["ACCESS_TOKEN"]}\"," + 
+                  "\"oauth_token_secret\": \"#{ENV["ACCESS_TOKEN_SECRET"]}\"}"
+    File.write(config_path, jsonstring)
+  end
+
   def load_model!
+    corpus_path = "corpus/#{original}.json"
     @model_path ||= "model/#{original}.model"
 
+    Ebooks::Archive.new(original, corpus_path).sync
+    Ebooks::Model.consume(corpus_path).save(model_path)
+    
     log "Loading model #{model_path}"
     @model = Ebooks::Model.load(model_path)
   end
