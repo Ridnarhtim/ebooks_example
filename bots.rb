@@ -47,12 +47,6 @@ class CloneBot < Ebooks::Bot
     end
   end
 
-  def on_message(dm)
-    delay do
-      reply(dm, model.make_response(dm.text))
-    end
-  end
-
   def on_mention(tweet)
     # Become more inclined to pester a user when they talk to us
     userinfo(tweet.user.screen_name).pesters_left += 1
@@ -103,28 +97,6 @@ class CloneBot < Ebooks::Bot
     userinfo(username).pesters_left > 0
   end
 
-  # Only follow our original user or people who are following our original user
-  # @param user [Twitter::User]
-  def can_follow?(username)
-    @original.nil? || username.casecmp(@original) == 0 || twitter.friendship?(username, @original)
-  end
-
-  def favorite(tweet)
-    if can_follow?(tweet.user.screen_name)
-      super(tweet)
-    else
-      log "Unfollowing @#{tweet.user.screen_name}"
-      twitter.unfollow(tweet.user.screen_name)
-    end
-  end
-
-  def on_follow(user)
-    if can_follow?(user.screen_name)
-      follow(user.screen_name)
-    else
-      log "Not following @#{user.screen_name}"
-    end
-  end
 
   private
 
